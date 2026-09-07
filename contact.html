@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact | RECON CORE</title>
+<meta name="description" content="Tell us what you are trying to source. Suppliers and customers hear back within 24 hours." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="RECON CORE" />
+<meta property="og:title" content="Contact | RECON CORE" />
+<meta property="og:description" content="Tell us what you are trying to source. Suppliers and customers hear back within 24 hours." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Contact | RECON CORE" />
+<meta name="twitter:description" content="Tell us what you are trying to source. Suppliers and customers hear back within 24 hours." />
+<meta name="theme-color" content="#0a0f16" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/shell.css" />
+<link rel="stylesheet" href="css/motion.css" />
+<link rel="stylesheet" href="css/polish.css" />
+<link rel="stylesheet" href="css/clay.css" />
+</head>
+<body data-page="contact">
+
+<header class="chapter chapter--night">
+  <canvas id="ctaNet" class="chapter__canvas" aria-hidden="true"></canvas>
+  <div class="chapter__in">
+    <span class="chapter__num">07</span>
+    <p class="chapter__k">Contact</p>
+    <h1 class="chapter__t">What are you<br /><em>trying to source?</em></h1>
+    <p class="chapter__s">We pride ourselves on communicating well. Suppliers and customers both hear back within <b>24 hours</b>, from a person who has already looked at your requirement.</p>
+  </div>
+</header>
+
+<section class="section section--night" id="start">
+  <div class="wrap contact">
+    <form class="form reveal" id="procForm">
+      <div class="field">
+        <label for="pWhat">WHAT ARE YOU SOURCING?</label>
+        <input type="text" id="pWhat" placeholder="Part number, category or 'full BOM'" required />
+      </div>
+      <div class="form__row">
+        <div class="field">
+          <label for="pQty">VOLUME</label>
+          <input type="text" id="pQty" placeholder="e.g. 12,000 pcs / year" />
+        </div>
+        <div class="field">
+          <label for="pWhen">TARGET WINDOW</label>
+          <input type="text" id="pWhen" placeholder="e.g. Q3 2026" />
+        </div>
+      </div>
+      <div class="form__row">
+        <div class="field">
+          <label for="pName">NAME</label>
+          <input type="text" id="pName" placeholder="Your name" required />
+        </div>
+        <div class="field">
+          <label for="pMail">MAIL ID</label>
+          <input type="email" id="pMail" placeholder="name@company.com" required />
+        </div>
+      </div>
+      <div class="field">
+        <label for="pNotes">ANYTHING ELSE</label>
+        <textarea id="pNotes" placeholder="Compliance requirements, certifications, incumbent supplier, what has gone wrong before"></textarea>
+      </div>
+      <button class="btn btn--solid form__go" type="submit">Run the elimination</button>
+
+      <div class="cta__out" id="ctaOut" aria-live="polite">
+        <div class="cta__steps" id="ctaSteps"></div>
+        <div class="cta__result" id="ctaResult"></div>
+      </div>
+    </form>
+
+    <aside class="people reveal">
+      <div class="panel-head panel-head--dark"><span>TALK TO A PERSON</span><span class="panel-head__right">24H REPLY</span></div>
+      <article class="person">
+        <span class="person__av" aria-hidden="true">G</span>
+        <div>
+          <b>Gunjan</b>
+          <span>Procurement &amp; customer requirements</span>
+          <a href="mailto:gunjan@reconcore.com">gunjan@reconcore.com</a>
+        </div>
+      </article>
+      <article class="person">
+        <span class="person__av" aria-hidden="true">S</span>
+        <div>
+          <b>Sahil</b>
+          <span>Supplier network &amp; onboarding</span>
+          <a href="mailto:sahil@reconcore.com">sahil@reconcore.com</a>
+        </div>
+      </article>
+      <div class="people__note">
+        <p><b>Customers</b> get a sourcing read on the requirement, not a brochure.</p>
+        <p><b>Suppliers</b> get the qualification pack and the categories we're short on.</p>
+        <p class="people__sla"><span class="dot dot--live"></span>Every enquiry answered within 24 hours.</p>
+      </div>
+      <a class="btn btn--ghost btn--ghost-dark people__alt" href="suppliers.html">I'm a supplier: onboard me <span aria-hidden="true">&rarr;</span></a>
+    </aside>
+  </div>
+</section>
+
+<script src="js/hero-network.js"></script>
+<script src="js/decision-tree.js"></script>
+<script src="js/supply-map.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/pages.js"></script>
+<script src="js/motion.js"></script>
+</body>
+</html>

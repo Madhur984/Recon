@@ -1,0 +1,116 @@
+/* =========================================================
+   RECON CORE: motion layer styles
+   ========================================================= */
+
+/* ---------- word-mask headline reveal ---------- */
+.is-splittable .w{
+  display:inline-block;overflow:hidden;vertical-align:bottom;
+  padding-bottom:.14em;margin-bottom:-.14em;
+}
+.is-splittable .w>i{
+  display:inline-block;font-style:inherit;color:inherit;
+  transform:translateY(110%);
+  transition:transform .78s cubic-bezier(.16,1,.3,1);
+}
+.is-splittable.is-lit .w>i{transform:none}
+
+/* ---------- parallax ---------- */
+.chapter__num{will-change:transform}
+.chapter__num,[data-parallax]{transform:translateY(var(--py,0))}
+/* the entrance animation owns transform until it finishes, then parallax takes over */
+.chapter__num{animation:numIn 1s cubic-bezier(.16,1,.3,1) .1s forwards}
+@keyframes numIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(var(--py,0))}}
+
+/* ---------- pointer spotlight ---------- */
+.spot{position:relative;isolation:isolate}
+.spot::before{
+  content:"";position:absolute;inset:0;z-index:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(340px circle at var(--mx,50%) var(--my,0%),
+             rgba(31,95,216,.09),transparent 62%);
+  opacity:0;transition:opacity .45s var(--ease);
+}
+.spot:hover::before{opacity:1}
+.spot>*{position:relative;z-index:1}
+.section--night .spot::before,.chapter--night .spot::before{
+  background:radial-gradient(340px circle at var(--mx,50%) var(--my,0%),
+             rgba(94,150,255,.14),transparent 62%);
+}
+
+/* ---------- cascade: staggered entrance for repeated rows ---------- */
+/* uses `translate`, not `transform`, so card hover transforms keep working */
+.cascade>*{
+  opacity:0;translate:0 18px;
+  transition:opacity .7s cubic-bezier(.16,1,.3,1),translate .7s cubic-bezier(.16,1,.3,1);
+  transition-delay:calc(var(--i,0) * 70ms);
+}
+.cascade.is-cascade>*{opacity:1;translate:none}
+/* rows that already animate themselves keep their own timing */
+.cascade.flowline>*{transition-delay:calc(var(--i,0) * 110ms)}
+.lanes tbody.cascade>*{transition-delay:calc(var(--i,0) * 55ms)}
+
+/* ---------- magnetic buttons ---------- */
+.btn--solid{transform:translate(var(--bx,0),var(--by,0));transition:transform .35s var(--ease),background .25s,color .25s,box-shadow .3s}
+.btn--solid:hover{transform:translate(var(--bx,0),calc(var(--by,0) - 2px))}
+.nextpage__go{transform:translate(var(--bx,0),var(--by,0))}
+.nextpage:hover .nextpage__go{transform:translate(calc(var(--bx,0) + 5px),var(--by,0))}
+
+/* shine sweep across solid buttons */
+.btn--solid{position:relative;overflow:hidden}
+.btn--solid::after{
+  content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);
+  transition:left .75s var(--ease);pointer-events:none;
+}
+.btn--solid:hover::after{left:130%}
+
+/* ---------- nav hides on the way down ---------- */
+.nav{transition:background .35s var(--ease),border-color .35s var(--ease),
+     padding .35s var(--ease),transform .45s var(--ease)}
+.nav.is-away{transform:translateY(-105%)}
+
+/* ---------- flow connector draws itself ---------- */
+.flowline::before{transform:scaleX(0);transform-origin:left;transition:transform 1.4s cubic-bezier(.16,1,.3,1) .2s}
+.flowline.is-cascade::before{transform:scaleX(1)}
+
+/* ---------- section eyebrow rule grows in ---------- */
+.eyebrow{position:relative}
+.sec-head .eyebrow::after{
+  content:"";display:block;width:0;height:1px;background:var(--line-2);
+  transition:width .9s cubic-bezier(.16,1,.3,1) .15s;
+}
+.sec-head.is-in .eyebrow::after,.is-in .sec-head .eyebrow::after{width:64px}
+
+/* ---------- marquee strip ---------- */
+.marquee{
+  position:relative;overflow:hidden;border-block:1px solid var(--line);
+  padding:16px 0;margin-top:clamp(46px,6vw,72px);
+}
+/* edge fades painted over the strip: a mask hides it in some engines */
+.marquee::before,.marquee::after{
+  content:"";position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none;
+}
+.marquee::before{left:0;background:linear-gradient(90deg,var(--paper-2),transparent)}
+.marquee::after{right:0;background:linear-gradient(270deg,var(--paper-2),transparent)}
+.marquee__track{display:flex;gap:0;width:max-content;animation:slide 42s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.marquee span{
+  display:flex;align-items:center;gap:26px;padding-right:26px;
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;color:var(--ink-2);white-space:nowrap;
+}
+.marquee span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--line-2)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ---------- reduced motion / static ---------- */
+.is-still .is-splittable .w>i{transform:none!important}
+.is-still .cascade>*{translate:none!important;opacity:1!important}
+.is-still .flowline::before{transform:scaleX(1)!important}
+.is-still .sec-head .eyebrow::after{width:64px}
+.is-still .marquee__track{animation:none}
+.is-still .nav.is-away{transform:none}
+@media (prefers-reduced-motion:reduce){
+  .is-splittable .w>i{transform:none!important}
+  .cascade>*{translate:none!important;opacity:1!important}
+  .flowline::before{transform:scaleX(1)!important}
+  .marquee__track{animation:none}
+  .chapter__num{animation:none;opacity:1}
+}

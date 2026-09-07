@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>For Suppliers | RECON CORE</title>
+<meta name="description" content="Join the RECON CORE network: qualified demand, scored fairly, with onboarding in days." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="RECON CORE" />
+<meta property="og:title" content="For Suppliers | RECON CORE" />
+<meta property="og:description" content="Join the RECON CORE network: qualified demand, scored fairly, with onboarding in days." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="For Suppliers | RECON CORE" />
+<meta name="twitter:description" content="Join the RECON CORE network: qualified demand, scored fairly, with onboarding in days." />
+<meta name="theme-color" content="#0a0f16" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/shell.css" />
+<link rel="stylesheet" href="css/motion.css" />
+<link rel="stylesheet" href="css/polish.css" />
+<link rel="stylesheet" href="css/clay.css" />
+</head>
+<body data-page="suppliers">
+
+<header class="chapter">
+  <div class="chapter__in">
+    <span class="chapter__num">06</span>
+    <p class="chapter__k">For suppliers</p>
+    <h1 class="chapter__t">Get on the shortlist<br /><em>that actually converts.</em></h1>
+    <p class="chapter__s">We don't send blast RFQs. Every enquiry you receive from RECON CORE has already been matched to what your plant can genuinely make, at the volume and tolerance you work in.</p>
+  </div>
+</header>
+
+<section class="section" id="benefits">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow"><span class="eyebrow__num">A</span> Benefits</p>
+      <h2 class="sec-title">Qualified demand, scored fairly.</h2>
+    </header>
+    <div class="bens reveal">
+      <article class="ben">
+        <span class="ben__n">01</span>
+        <h3>Matched RFQs only</h3>
+        <p>You receive enquiries filtered against your capability envelope: process, tolerance, certification and volume band. No noise to quote through.</p>
+      </article>
+      <article class="ben">
+        <span class="ben__n">02</span>
+        <h3>You see the scorecard</h3>
+        <p>Win or lose, you get the factors you were scored on. If lead time cost you the order, you'll know that, not guess it.</p>
+      </article>
+      <article class="ben">
+        <span class="ben__n">03</span>
+        <h3>Paid on agreed terms</h3>
+        <p>Terms are set at PO and honoured. No renegotiation after inspection, no invoice sitting behind three approval layers.</p>
+      </article>
+      <article class="ben">
+        <span class="ben__n">04</span>
+        <h3>Compliance handled with you</h3>
+        <p>Certifications, licensing and export documentation are prepared alongside your team so shipments don't stall at the border.</p>
+      </article>
+      <article class="ben">
+        <span class="ben__n">05</span>
+        <h3>Logistics off your desk</h3>
+        <p>Our integrated logistics platform collects from your gate. You stop juggling forwarders for someone else's order.</p>
+      </article>
+      <article class="ben">
+        <span class="ben__n">06</span>
+        <h3>Reputation that compounds</h3>
+        <p>Consistent quality raises your standing in the pool, which raises the volume and the value of what reaches you next.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--night" id="onboard">
+  <div class="wrap onboard">
+    <div class="onboard__copy reveal">
+      <p class="eyebrow"><span class="eyebrow__num">B</span> Supplier onboarding</p>
+      <h2 class="sec-title">Register your plant.</h2>
+      <p class="sec-sub">Tell us who you are and where you are. We'll come back within 24 hours with the qualification pack and, where it fits, a live requirement.</p>
+      <ol class="steps">
+        <li><b>Register</b><span>Company, contact and geographic locality.</span></li>
+        <li><b>Qualify</b><span>Capability, certifications and an audit where the tier requires it.</span></li>
+        <li><b>Receive</b><span>Matched RFQs with the scoring factors stated up front.</span></li>
+      </ol>
+    </div>
+
+    <form class="form reveal" id="supplierForm">
+      <div class="field">
+        <label for="sCompany">COMPANY NAME</label>
+        <input type="text" id="sCompany" name="company" placeholder="Registered entity name" required />
+      </div>
+      <div class="form__row">
+        <div class="field">
+          <label for="sMail">MAIL ID</label>
+          <input type="email" id="sMail" name="mail" placeholder="name@company.com" required />
+        </div>
+        <div class="field">
+          <label for="sPhone">CONTACT</label>
+          <input type="tel" id="sPhone" name="phone" placeholder="+91 00000 00000" />
+        </div>
+      </div>
+      <div class="form__row">
+        <div class="field">
+          <label for="sGeo">GEOGRAPHIC LOCALITY</label>
+          <input type="text" id="sGeo" name="geo" placeholder="City, country" required />
+        </div>
+        <div class="field">
+          <label for="sCat">PRIMARY CATEGORY</label>
+          <select id="sCat" name="category">
+            <option>Semiconductors</option>
+            <option>Passives</option>
+            <option>Electromechanical</option>
+            <option>Industrial / machined</option>
+            <option>Logistics</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="sCap">CAPABILITY NOTES</label>
+        <textarea id="sCap" name="capability" placeholder="Processes, tolerance class, certifications, typical volumes"></textarea>
+      </div>
+      <button class="btn btn--solid form__go" type="submit">Submit for qualification</button>
+      <div class="formout" id="supplierOut" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+<script src="js/hero-network.js"></script>
+<script src="js/decision-tree.js"></script>
+<script src="js/supply-map.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/pages.js"></script>
+<script src="js/motion.js"></script>
+</body>
+</html>

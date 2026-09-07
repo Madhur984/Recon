@@ -1,0 +1,5 @@
+New folder/
+*.png
+.DS_Store
+Thumbs.db
+edge-*/

@@ -1,0 +1,514 @@
+/* =========================================================
+   RECON CORE: clay layer
+   Loaded last. Re-skins surfaces only, never layout.
+   Clay reads as raised only if the ground sits below it, so
+   the page tone drops and the surfaces stay near white.
+   ========================================================= */
+
+:root{
+  /* ground drops; surfaces stay light */
+  --paper:#ebeee8;
+  --paper-2:#e3e7df;
+  --line:#d2d7cc;
+  --line-2:#bcc3b4;
+
+  --clay-r:30px;
+  --clay-r-sm:20px;
+  --clay-r-xs:14px;
+
+  --clay-face:linear-gradient(150deg,#ffffff 0%,#f6f8f3 55%,#eef1ea 100%);
+  --clay-face-2:linear-gradient(150deg,#fbfcf9 0%,#f1f4ee 60%,#e8ece3 100%);
+
+  --clay-lift:
+    0 30px 44px -22px rgba(28,38,50,.26),
+    0 12px 20px -10px rgba(28,38,50,.14),
+    0 2px 4px rgba(28,38,50,.05);
+  --clay-lift-lg:
+    0 46px 66px -28px rgba(28,38,50,.30),
+    0 18px 30px -14px rgba(28,38,50,.16),
+    0 3px 6px rgba(28,38,50,.06);
+  --clay-lift-sm:
+    0 14px 22px -12px rgba(28,38,50,.22),
+    0 5px 9px -5px rgba(28,38,50,.12);
+
+  --clay-inner:
+    inset 0 3px 0 rgba(255,255,255,1),
+    inset 2px 0 0 rgba(255,255,255,.7),
+    inset 0 -16px 26px -18px rgba(28,38,50,.34);
+  --clay-inner-sm:
+    inset 0 2px 0 rgba(255,255,255,1),
+    inset 0 -9px 15px -11px rgba(28,38,50,.30);
+
+  --clay-press:
+    inset 6px 6px 13px rgba(28,38,50,.13),
+    inset -5px -5px 11px rgba(255,255,255,1);
+  --clay-press-sm:
+    inset 4px 4px 9px rgba(28,38,50,.12),
+    inset -3px -3px 7px rgba(255,255,255,1);
+
+  /* night clay: black shadow, faint top light */
+  --clay-night:linear-gradient(158deg,#18232f 0%,#0e1822 100%);
+  --clay-night-lift:
+    0 30px 46px -24px rgba(0,0,0,.62),
+    0 12px 20px -10px rgba(0,0,0,.44);
+  --clay-night-inner:
+    inset 0 1px 0 rgba(255,255,255,.10),
+    inset 0 -18px 28px -20px rgba(0,0,0,.7);
+  --clay-night-press:
+    inset 5px 5px 12px rgba(0,0,0,.55),
+    inset -4px -4px 10px rgba(255,255,255,.055);
+}
+
+body{ background:var(--paper); }
+
+/* ---------------------------------------------------------
+   1. raised surfaces
+   Definition comes from light and shadow, so borders go.
+   --------------------------------------------------------- */
+.card,
+.ben,
+.level,
+.tcard,
+.pathcard,
+.ind,
+.stage,
+.person,
+.intake,
+.form,
+.onboard,
+.demo,
+.transp,
+.hubpanel,
+.layerbar,
+.statement__grid,
+.tl__item,
+.chapter__canvas{
+  border:0 !important;
+  border-radius:var(--clay-r);
+  background:var(--clay-face);
+  box-shadow:var(--clay-lift), var(--clay-inner);
+}
+
+.intake,
+.demo,
+.statement__grid{
+  border-radius:calc(var(--clay-r) + 6px);
+  box-shadow:var(--clay-lift-lg), var(--clay-inner);
+}
+
+.tl__item,
+.transp{
+  border-radius:var(--clay-r-sm);
+  box-shadow:var(--clay-lift-sm), var(--clay-inner-sm);
+}
+
+/* hover lifts the piece off the ground rather than tinting it */
+.card:hover,
+.ben:hover,
+.level:hover,
+.tcard:hover,
+.pathcard:hover,
+.ind:hover,
+.stage:hover,
+.person:hover{
+  box-shadow:var(--clay-lift-lg), var(--clay-inner);
+}
+
+/* the cascade animation owns `translate`, so hover uses `transform` */
+.pathcard:hover,
+.tcard:hover{ transform:translateY(-3px); }
+
+/* ---------------------------------------------------------
+   2. the stat strip becomes four pebbles
+   --------------------------------------------------------- */
+.stat-strip{
+  border:0 !important;
+  background:none !important;
+  box-shadow:none !important;
+  gap:16px;
+}
+.stat{
+  border:0 !important;
+  border-radius:var(--clay-r-sm);
+  background:var(--clay-face);
+  box-shadow:var(--clay-lift-sm), var(--clay-inner-sm);
+  padding:22px 20px;
+}
+.stat:hover{ box-shadow:var(--clay-lift), var(--clay-inner-sm); }
+
+/* ---------------------------------------------------------
+   3. buttons: raised at rest, pressed on click
+   --------------------------------------------------------- */
+.btn,
+.nextpage__go,
+.demo__go,
+.form__go,
+.card__toggle{
+  border:0 !important;
+  border-radius:999px;
+  box-shadow:var(--clay-lift-sm), var(--clay-inner-sm);
+}
+.btn--ghost{
+  background:var(--clay-face);
+}
+.btn:hover,
+.demo__go:hover,
+.form__go:hover,
+.card__toggle:hover{
+  box-shadow:var(--clay-lift), var(--clay-inner-sm);
+}
+.btn:active,
+.demo__go:active,
+.form__go:active,
+.card__toggle:active{
+  box-shadow:var(--clay-press-sm);
+  transform:translateY(1px);
+}
+.btn--solid{
+  box-shadow:
+    0 16px 24px -12px rgba(31,95,216,.48),
+    0 6px 10px -6px rgba(28,38,50,.22),
+    inset 0 2px 0 rgba(255,255,255,.34),
+    inset 0 -10px 16px -12px rgba(0,0,0,.42);
+}
+.btn--solid:hover{
+  box-shadow:
+    0 24px 34px -14px rgba(31,95,216,.55),
+    0 8px 14px -8px rgba(28,38,50,.26),
+    inset 0 2px 0 rgba(255,255,255,.34),
+    inset 0 -10px 16px -12px rgba(0,0,0,.42);
+}
+.btn--solid:active{
+  box-shadow:
+    inset 5px 5px 11px rgba(0,0,0,.34),
+    inset -4px -4px 9px rgba(255,255,255,.20);
+  transform:translateY(1px);
+}
+.btn--ghost-dark{
+  background:rgba(255,255,255,.05);
+  box-shadow:var(--clay-night-lift), var(--clay-night-inner);
+}
+
+/* ---------------------------------------------------------
+   4. toggles read as physical state
+   raised = on, sunk into the surface = off
+   --------------------------------------------------------- */
+.layer,
+.preset,
+.intake__tab,
+.section--paper .chip,
+.section:not(.section--night) .chip{
+  border:0 !important;
+  border-radius:999px;
+  background:var(--clay-face-2);
+  box-shadow:var(--clay-press-sm);
+  transition:box-shadow .22s var(--ease), color .22s var(--ease), transform .22s var(--ease);
+}
+.layer.is-on,
+.preset.is-on,
+.intake__tab.is-on,
+.section:not(.section--night) .chip.is-on{
+  background:var(--clay-face);
+  box-shadow:var(--clay-lift-sm), var(--clay-inner-sm);
+}
+.layer:hover,
+.preset:hover,
+.intake__tab:hover{ transform:translateY(-1px); }
+
+/* dark toggle bars keep the same logic in night clay */
+.section--night .layer,
+.chapter--night .layer,
+.panel-head--dark .layer{
+  background:rgba(255,255,255,.03);
+  box-shadow:var(--clay-night-press);
+}
+.section--night .layer.is-on,
+.chapter--night .layer.is-on,
+.panel-head--dark .layer.is-on{
+  background:rgba(255,255,255,.07);
+  box-shadow:var(--clay-night-lift), var(--clay-night-inner);
+}
+
+/* ---------------------------------------------------------
+   5. inputs are pressed clay, not outlined boxes
+   --------------------------------------------------------- */
+.field input,
+.field textarea,
+.field select,
+.intake input[type="text"],
+.form input,
+.form textarea,
+.onboard input,
+.onboard textarea,
+.drop{
+  border:0 !important;
+  border-radius:var(--clay-r-xs);
+  background:var(--clay-face-2);
+  box-shadow:var(--clay-press);
+}
+.drop{
+  border-radius:var(--clay-r-sm);
+}
+.drop:hover{
+  box-shadow:var(--clay-press), inset 0 0 0 2px rgba(31,95,216,.22);
+}
+.field input:focus,
+.field textarea:focus,
+.intake input[type="text"]:focus,
+.form input:focus,
+.form textarea:focus,
+.onboard input:focus,
+.onboard textarea:focus{
+  box-shadow:var(--clay-press), inset 0 0 0 2px rgba(31,95,216,.42);
+}
+
+/* the focus-visible ring must still win for keyboard users */
+:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+}
+
+/* ---------------------------------------------------------
+   6. night surfaces
+   --------------------------------------------------------- */
+.section--night,
+.chapter--night{
+  border:0 !important;
+}
+.map-wrap,
+.mapcard,
+.ticker,
+.hubpanel--dark,
+.lanes,
+.panel-head--dark,
+.formout,
+.people{
+  border:0 !important;
+  border-radius:var(--clay-r);
+  background:var(--clay-night);
+  box-shadow:var(--clay-night-lift), var(--clay-night-inner);
+}
+
+/* ---------------------------------------------------------
+   7. chrome: nav, rail, page transition, footer
+   --------------------------------------------------------- */
+.nav.is-stuck{
+  border:0 !important;
+  background:rgba(247,249,245,.82);
+  backdrop-filter:blur(14px) saturate(1.15);
+  box-shadow:0 16px 30px -20px rgba(28,38,50,.34);
+}
+.nav__links a{
+  border-radius:999px;
+  transition:box-shadow .22s var(--ease), color .22s var(--ease);
+}
+.nav__links a.is-here{
+  background:var(--clay-face);
+  box-shadow:var(--clay-lift-sm), var(--clay-inner-sm);
+}
+.nav__mark{
+  border:0 !important;
+  border-radius:50%;
+  background:var(--clay-face);
+  box-shadow:var(--clay-lift-sm), var(--clay-inner-sm);
+}
+.rail__dot{
+  border:0 !important;
+  border-radius:999px;
+}
+.rail__dot.is-here{
+  background:var(--clay-face);
+  box-shadow:var(--clay-lift-sm), var(--clay-inner-sm);
+}
+.nextpage{
+  border:0 !important;
+  border-radius:calc(var(--clay-r) + 6px);
+  background:var(--clay-face);
+  box-shadow:var(--clay-lift), var(--clay-inner);
+}
+.nextpage:hover{ box-shadow:var(--clay-lift-lg), var(--clay-inner); }
+.foot{ border:0 !important; }
+
+/* progress rails and pipeline dots sink, their fills sit proud */
+.scroll-rail,
+.level__bar{
+  border:0 !important;
+  border-radius:999px;
+  box-shadow:var(--clay-press-sm);
+}
+.scroll-rail__fill,
+.level__bar > *{
+  border-radius:999px;
+  box-shadow:0 1px 3px rgba(28,38,50,.30);
+}
+
+/* ---------------------------------------------------------
+   8. reduced motion keeps every clay state, drops the travel
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce){
+  .pathcard:hover,
+  .tcard:hover,
+  .layer:hover,
+  .preset:hover,
+  .intake__tab:hover,
+  .btn:active,
+  .btn--solid:active{ transform:none; }
+}
+
+/* ---------------------------------------------------------
+   9. small screens: shallower clay so it does not eat the row
+   --------------------------------------------------------- */
+@media (max-width: 700px){
+  :root{
+    --clay-r:22px;
+    --clay-r-sm:16px;
+    --clay-lift:
+      0 18px 26px -16px rgba(28,38,50,.24),
+      0 6px 12px -7px rgba(28,38,50,.13);
+    --clay-lift-lg:
+      0 26px 38px -20px rgba(28,38,50,.28),
+      0 9px 16px -9px rgba(28,38,50,.15);
+  }
+}
+
+/* ---------------------------------------------------------
+   10. surfaces the first pass missed
+   --------------------------------------------------------- */
+.io__box,
+.think__panel,
+.scorecard,
+.dash,
+.mapwrap,
+.gauge,
+.contact{
+  border:0 !important;
+  border-radius:var(--clay-r);
+  background:var(--clay-face);
+  box-shadow:var(--clay-lift), var(--clay-inner);
+}
+.contact,
+.gauge{
+  background:none;
+  box-shadow:none;
+}
+
+/* the OUTPUT box kept its accent, as an inset ring rather than a hairline */
+.io__box--out{
+  box-shadow:var(--clay-lift), var(--clay-inner), inset 0 0 0 2px rgba(19,122,90,.55);
+}
+
+/* internal dividers stay, but softer than a border */
+.think__out{ border-top:1px solid rgba(28,38,50,.07) !important; }
+.think__out div{ border-right:1px solid rgba(28,38,50,.07) !important; }
+.think__out div:last-child{ border-right:0 !important; }
+.dtable td{ border-bottom:1px dashed rgba(28,38,50,.12) !important; }
+
+/* the map is night clay, not a bordered well */
+.mapwrap{
+  background:var(--clay-night);
+  box-shadow:var(--clay-night-lift), var(--clay-night-inner);
+}
+
+/* factors: raised when on, sunk when off, same grammar as the toggles */
+.factor{
+  border:0 !important;
+  border-radius:var(--clay-r-xs);
+  background:var(--clay-face-2);
+  box-shadow:var(--clay-press-sm);
+}
+.factor.is-on{
+  background:var(--clay-face);
+  box-shadow:var(--clay-lift-sm), var(--clay-inner-sm);
+}
+.factor__check{
+  border:0 !important;
+  box-shadow:var(--clay-press-sm);
+}
+.factor.is-on .factor__check{
+  box-shadow:0 3px 7px -2px rgba(19,122,90,.55), inset 0 1px 0 rgba(255,255,255,.4);
+}
+
+/* the supply chain nodes read as pebbles on a track */
+.cnode{
+  border:0 !important;
+  border-radius:999px;
+  background:var(--clay-face);
+  box-shadow:var(--clay-lift-sm), var(--clay-inner-sm);
+}
+.cnode--core{
+  background:var(--ink);
+  box-shadow:
+    0 14px 22px -12px rgba(28,38,50,.5),
+    inset 0 1px 0 rgba(255,255,255,.16),
+    inset 0 -8px 14px -10px rgba(0,0,0,.6);
+}
+
+/* pipeline dots sink; the active one lifts */
+.pipe__step span{ transition:box-shadow .3s var(--ease); }
+
+/* ---------------------------------------------------------
+   11. label typeface
+   Assistant carries the letterspaced label chrome; JetBrains
+   Mono stays on anything numeric, where column alignment is
+   doing real work.
+   --------------------------------------------------------- */
+:root{
+  --label:"Assistant",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+
+.eyebrow,
+.elim__head,
+.elim__status,
+.chapter__k,
+.nextpage__k,
+.pathcard__n,
+.stage__tag,
+.io__k,
+.io__label,
+.factor__k,
+.layerbar__k,
+.layerbar__hint,
+.level__n,
+.level__meta,
+.tcard__n,
+.tl__k,
+.dash__k,
+.dash__logo,
+.chain__label,
+.scorecard__why span,
+.think__panel .panel-head,
+.field label,
+.people__sla,
+.ind__k,
+.chip,
+.pipe__step span,
+.statement__grid b,
+.foot__c,
+.rail__dot span,
+.marquee span,
+.dtable th,
+.lanes th{
+  font-family:var(--label) !important;
+  font-weight:600;
+  letter-spacing:.18em;
+}
+
+/* Assistant sits smaller on the page than JetBrains Mono at the same
+   size, so the small labels get a point back to hold their weight */
+.eyebrow,
+.chapter__k,
+.pathcard__n,
+.io__k,
+.io__label,
+.level__n,
+.tcard__n,
+.tl__k,
+.dash__k,
+.chain__label,
+.layerbar__k,
+.nextpage__k,
+.field label{
+  font-size:11.5px;
+}
+.elim__head,
+.elim__status{ font-size:12.5px; letter-spacing:.16em; }

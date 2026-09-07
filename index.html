@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RECON CORE | Semiconductor procurement, simplified into a decision</title>
+<meta name="description" content="RECON CORE eliminates complex layers and middlemen via RECON ATLAS, an optimisation engine for your procurement decisions." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="RECON CORE" />
+<meta property="og:title" content="RECON CORE | Semiconductor procurement, simplified into a decision" />
+<meta property="og:description" content="RECON CORE eliminates complex layers and middlemen via RECON ATLAS, an optimisation engine for your procurement decisions." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="RECON CORE | Semiconductor procurement, simplified into a decision" />
+<meta name="twitter:description" content="RECON CORE eliminates complex layers and middlemen via RECON ATLAS, an optimisation engine for your procurement decisions." />
+<meta name="theme-color" content="#0a0f16" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/shell.css" />
+<link rel="stylesheet" href="css/motion.css" />
+<link rel="stylesheet" href="css/polish.css" />
+<link rel="stylesheet" href="css/clay.css" />
+</head>
+<body data-page="home">
+
+<!-- ============== HERO ============== -->
+<section class="hero" id="hero">
+  <canvas id="heroNet" class="hero__canvas" aria-hidden="true"></canvas>
+  <div class="hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow"><span class="eyebrow__num">01</span> Powered by RECON ATLAS</p>
+      <h1 class="hero__title">
+        <span class="line"><span>Semiconductor procurement</span></span>
+        <span class="line"><span>is rationally complex.</span></span>
+        <span class="line line--accent"><span>We simplify the decision.</span></span>
+      </h1>
+      <p class="hero__sub">We eliminate complex layers and middlemen via <b>RECON ATLAS</b>, an optimisation engine that turns a requirement into one defensible procurement decision, then executes it end to end.</p>
+
+      <!-- source intake: three ways in -->
+      <div class="intake" id="intake">
+        <div class="intake__head">What are you trying to source?</div>
+        <div class="intake__tabs" role="tablist">
+          <button class="intake__tab is-on" data-mode="spec" type="button" role="tab">Specify requirement</button>
+          <button class="intake__tab" data-mode="bom" type="button" role="tab">Upload BOM</button>
+          <button class="intake__tab" data-mode="cad" type="button" role="tab">Upload CAD file</button>
+        </div>
+        <form class="intake__body" id="intakeForm">
+          <div class="intake__pane is-on" data-pane="spec">
+            <input type="text" id="intakeSpec" placeholder="e.g. STM32G474RET6, 12,000 pcs, Q3, AEC-Q100" aria-label="Specify your requirement" />
+          </div>
+          <div class="intake__pane" data-pane="bom">
+            <label class="drop" for="bomFile"><b>Drop your BOM</b><span>.csv, .xlsx or .txt. We parse line items and screen every part</span></label>
+            <input type="file" id="bomFile" class="visually-hidden" />
+          </div>
+          <div class="intake__pane" data-pane="cad">
+            <label class="drop" for="cadFile"><b>Drop your CAD file</b><span>.step, .iges or .dxf. We extract the spec envelope and match manufacturing</span></label>
+            <input type="file" id="cadFile" class="visually-hidden" />
+          </div>
+          <button class="btn btn--solid" type="submit">Run RECON ATLAS</button>
+        </form>
+        <div class="intake__out" id="intakeOut" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <aside class="elim" id="elim" aria-label="Elimination sequence">
+      <div class="elim__head"><span class="dot dot--live"></span><span>RECON ATLAS &middot; LIVE</span></div>
+      <div class="elim__track" id="elimTrack">
+        <span class="elim__n">127</span><i>&rsaquo;</i>
+        <span class="elim__n">42</span><i>&rsaquo;</i>
+        <span class="elim__n">18</span><i>&rsaquo;</i>
+        <span class="elim__n">9</span><i>&rsaquo;</i>
+        <span class="elim__n">3</span><i>&rsaquo;</i>
+        <span class="elim__n elim__n--final">1</span>
+      </div>
+      <div class="elim__status" id="elimStatus">Scanning viable sources</div>
+      <div class="elim__bar"><div class="elim__bar-fill" id="elimBar"></div></div>
+    </aside>
+  </div>
+  <div class="hero__scroll" aria-hidden="true"><span></span>scroll</div>
+</section>
+
+<!-- ============== THE FLOW ============== -->
+<section class="section section--paper" id="flow">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow"><span class="eyebrow__num">A</span> One engine, end to end</p>
+      <h2 class="sec-title">From requirement to dock, without the juggling.</h2>
+      <p class="sec-sub">Most buyers stitch together a sourcing agent, a compliance consultant and three freight partners. RECON ATLAS runs all four stages as one chain of custody.</p>
+    </header>
+
+    <div class="flowline reveal" id="flowline">
+      <article class="stage" data-stage="1">
+        <span class="stage__n">01</span>
+        <h3>Requirement Capture</h3>
+        <p>Spec, BOM or CAD in. We normalise part numbers, tolerances, volumes and the compliance envelope before a single supplier is contacted.</p>
+        <span class="stage__tag">Spec &middot; BOM &middot; CAD</span>
+      </article>
+      <article class="stage" data-stage="2">
+        <span class="stage__n">02</span>
+        <h3>Supplier Sourcing</h3>
+        <p>RECON ATLAS screens the qualified network against specification, quality, cost and lead time, then eliminates until one source stands up.</p>
+        <span class="stage__tag">127 &rarr; 1</span>
+      </article>
+      <article class="stage" data-stage="3">
+        <span class="stage__n">03</span>
+        <h3>Compliance &amp; ITL</h3>
+        <p>Certifications, licensing, export control and international trade &amp; logistics documentation cleared before the goods move, not after.</p>
+        <span class="stage__tag">Certifications &middot; Licensing</span>
+      </article>
+      <article class="stage" data-stage="4">
+        <span class="stage__n">04</span>
+        <h3>Last-Mile Logistics</h3>
+        <p>One integrated logistics platform to your dock. No more juggling multiple shipping partners or chasing three portals for one shipment.</p>
+        <span class="stage__tag">Integrated platform</span>
+      </article>
+    </div>
+
+    <div class="stat-strip reveal">
+      <div class="stat"><b data-count="8">0</b><span>intermediate layers removed</span></div>
+      <div class="stat"><b data-count="94" data-suffix="%">0</b><span>of quotes returned inside 72h</span></div>
+      <div class="stat"><b data-count="127">0</b><span>sources screened per requirement</span></div>
+      <div class="stat"><b data-count="1">0</b><span>partner from requirement to dock</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== THE PROBLEM (teaser) ============== -->
+<section class="section" id="problem">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow"><span class="eyebrow__num">B</span> What we fix</p>
+      <h2 class="sec-title">Traditional sourcing is a long chain.<br /><span class="muted">Every link adds delay, cost and doubt.</span></h2>
+    </header>
+
+    <div class="chain reveal" id="chain">
+      <div class="chain__row">
+        <div class="chain__label">TRADITIONAL LONG CHAIN</div>
+        <div class="chain__nodes">
+          <div class="cnode"><span>Requirement</span></div>
+          <div class="cnode"><span>Broker</span></div>
+          <div class="cnode"><span>Distributor</span></div>
+          <div class="cnode"><span>Sub-agent</span></div>
+          <div class="cnode"><span>Trader</span></div>
+          <div class="cnode"><span>Factory</span></div>
+          <div class="cnode"><span>Freight</span></div>
+          <div class="cnode cnode--end"><span>You</span></div>
+        </div>
+        <div class="chain__meta"><b>6-14 weeks</b> &middot; opaque margin &middot; no traceability</div>
+      </div>
+      <div class="chain__row chain__row--core">
+        <div class="chain__label">RECON CORE, COMPRESSED</div>
+        <div class="chain__nodes chain__nodes--short">
+          <div class="cnode"><span>Requirement</span></div>
+          <div class="cnode cnode--core"><span>RECON ATLAS</span></div>
+          <div class="cnode cnode--end"><span>Verified source, landed</span></div>
+        </div>
+        <div class="chain__meta chain__meta--core"><b>72 hours</b> &middot; audited pricing &middot; full traceability</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CHAPTER INDEX ============== -->
+<section class="section section--paper" id="chapters">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow"><span class="eyebrow__num">C</span> The rest of the story</p>
+      <h2 class="sec-title">Six chapters, one decision.</h2>
+    </header>
+    <div class="paths reveal">
+      <a class="pathcard" href="how-we-decide.html">
+        <span class="pathcard__n">02 / HOW WE DECIDE</span>
+        <h3>Decision science, not opinion</h3>
+        <p>Specification, quality, cost and lead time, weighted into one judgement you can audit.</p>
+        <span class="pathcard__line"></span>
+      </a>
+      <a class="pathcard" href="supply-network.html">
+        <span class="pathcard__n">03 / SUPPLY NETWORK</span>
+        <h3>Levels, sourcing and routes</h3>
+        <p>A qualified network you can toggle apart: tiers, hubs and the lanes between them.</p>
+        <span class="pathcard__line"></span>
+      </a>
+      <a class="pathcard" href="execution.html">
+        <span class="pathcard__n">04 / EXECUTION</span>
+        <h3>Transparency like never before</h3>
+        <p>Every RFQ, PO, inspection and shipment on one board. Contact us for a live demo.</p>
+        <span class="pathcard__line"></span>
+      </a>
+      <a class="pathcard" href="solutions.html">
+        <span class="pathcard__n">05 / SOLUTIONS</span>
+        <h3>Components and industries</h3>
+        <p>Semiconductors, passives, electromechanical and industrial, for EV, rail, space and defence.</p>
+        <span class="pathcard__line"></span>
+      </a>
+      <a class="pathcard" href="suppliers.html">
+        <span class="pathcard__n">06 / FOR SUPPLIERS</span>
+        <h3>Onboard to the network</h3>
+        <p>Qualified demand, scored fairly. Register your plant and start receiving matched RFQs.</p>
+        <span class="pathcard__line"></span>
+      </a>
+      <a class="pathcard" href="contact.html">
+        <span class="pathcard__n">07 / CONTACT</span>
+        <h3>Hear back within 24 hours</h3>
+        <p>Talk to Gunjan or Sahil. Suppliers and customers both get a reply inside a day.</p>
+        <span class="pathcard__line"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script src="js/hero-network.js"></script>
+<script src="js/decision-tree.js"></script>
+<script src="js/supply-map.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/pages.js"></script>
+<script src="js/motion.js"></script>
+</body>
+</html>

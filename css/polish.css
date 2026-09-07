@@ -1,0 +1,133 @@
+/* =========================================================
+   RECON CORE: polish: focus, selection, mobile repairs
+   ========================================================= */
+
+/* ---------- selection ---------- */
+::selection{background:var(--accent);color:#fff}
+.section--night ::selection,.chapter--night ::selection{background:#5e96ff;color:#06101f}
+
+/* ---------- focus: visible for keyboards, quiet for mice ---------- */
+:focus{outline:none}
+:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+  border-radius:4px;
+}
+.section--night :focus-visible,.chapter--night :focus-visible,.foot :focus-visible{
+  outline-color:#7fb0ff;
+}
+/* inputs already signal focus with a border, so pair it with a ring instead of replacing it */
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible,
+.intake__pane input:focus-visible{
+  outline-offset:1px;
+}
+.mhub:focus-visible{outline-offset:2px}
+
+/* ---------- skip link ---------- */
+.skip{
+  position:fixed;top:10px;left:10px;z-index:500;
+  padding:11px 18px;border-radius:999px;background:var(--ink);color:#fff;
+  font-size:13.5px;font-weight:500;
+  transform:translateY(-160%);transition:transform .3s var(--ease);
+}
+.skip:focus-visible{transform:none}
+
+/* ---------- scrollbar ---------- */
+@supports (scrollbar-color: red blue){
+  html{scrollbar-color:var(--line-2) transparent;scrollbar-width:thin}
+}
+
+/* =========================================================
+   MOBILE REPAIRS
+   ========================================================= */
+@media (max-width:1080px){
+  /* the network must not compete with the copy it sits behind */
+  .hero__canvas{opacity:.4}
+  .chapter__canvas{opacity:.5}
+}
+
+@media (max-width:760px){
+  .hero__canvas{opacity:.28}
+
+  /* lane table -> stacked records; six columns never fit a phone */
+  .lanes,.lanes tbody,.lanes tr,.lanes td{display:block;width:100%}
+  .lanes thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .lanes tr{
+    border:1px solid var(--night-line);border-radius:12px;
+    padding:14px 16px;margin-bottom:12px;background:rgba(231,236,242,.03);
+  }
+  .lanes td{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:7px 0;border-bottom:1px dashed var(--night-line);text-align:right;
+  }
+  .lanes td:last-child{border-bottom:0;padding-bottom:0}
+  .lanes td::before{
+    content:attr(data-label);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:#8fa0b2;
+    text-align:left;flex:0 0 auto;
+  }
+  .lanes td:nth-child(4){display:flex}   /* mode is useful again once stacked */
+  .lanes .chip{white-space:nowrap}
+
+  /* the dashboard table needs the same treatment */
+  .dtable tr{display:grid;grid-template-columns:1fr 1fr;gap:2px 12px;padding:10px 0;border-bottom:1px dashed var(--line)}
+  .dtable tr:first-child{display:none}
+  .dtable td{border:0;padding:2px 0}
+  .dtable td:nth-child(1){font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+  .dtable td:nth-child(4){justify-self:end;grid-row:1;grid-column:2}
+
+  /* pipeline labels crowd at phone width */
+  .pipe{overflow-x:auto;gap:26px;justify-content:flex-start;padding-bottom:6px}
+  .pipe__step{flex:0 0 auto}
+
+  /* chapter numeral shouldn't dominate a small screen */
+  .chapter__num{font-size:clamp(52px,17vw,72px)}
+
+  /* map reads better slightly taller and scrollable side to side */
+  .mapwrap{overflow-x:auto}
+  .map{min-width:640px}
+  .map__ticker{min-width:0;font-size:10.5px}
+
+  /* forms: full-width targets */
+  .form__go,.intake__body .btn{width:100%;justify-content:center}
+  .btn{padding:13px 20px}
+}
+
+/* touch devices: no hover spotlight, no magnetic pull */
+@media (hover:none){
+  .spot::before{display:none}
+  .btn--solid{transform:none}
+}
+
+/* =========================================================
+   CARD ART: technical illustrations, drawn not decorated
+   ========================================================= */
+.card__art{background:var(--night-2)}
+/* the old gradient fills are replaced by real drawings */
+.card__art--semi::after,.card__art--pass::after,
+.card__art--em::after,.card__art--ind::after{background:none}
+.card__art::after{
+  background:
+    radial-gradient(120% 90% at 50% 0%,rgba(94,150,255,.16),transparent 70%),
+    repeating-linear-gradient(0deg,rgba(231,236,242,.05) 0 1px,transparent 1px 13px),
+    repeating-linear-gradient(90deg,rgba(231,236,242,.05) 0 1px,transparent 1px 13px);
+}
+.art{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.art__g{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.art__body{fill:rgba(94,150,255,.07);stroke:#7fb0ff;stroke-width:1.3}
+.art__die{fill:rgba(94,150,255,.14);stroke:rgba(127,176,255,.7);stroke-width:1}
+.art__cap{fill:rgba(127,176,255,.55);stroke:none}
+.art__pins path,.art__pins{stroke:rgba(147,167,187,.75);stroke-width:1.2}
+.art__trace{stroke:rgba(95,214,172,.85);stroke-width:1.2;stroke-dasharray:3 4}
+.art__coil{stroke:#7fb0ff;stroke-width:1.4}
+.art__grid circle{r:2.6;fill:rgba(127,176,255,.6);stroke:none}
+.art__dim{stroke:rgba(147,167,187,.5);stroke-width:1;stroke-dasharray:2 3}
+.art__hot{fill:#5fd6ac}
+
+/* the drawing wakes up when you hover the card */
+.art__trace{stroke-dashoffset:0;transition:stroke-dashoffset 1.2s linear}
+.card:hover .art__trace{stroke-dashoffset:-28}
+.art__hot{transition:transform .5s var(--ease);transform-origin:center;transform-box:fill-box}
+.card:hover .art__hot{transform:scale(1.6)}
+.card__art .art{transition:transform .6s var(--ease)}
+.card:hover .card__art .art{transform:scale(1.04)}

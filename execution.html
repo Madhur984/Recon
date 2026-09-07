@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Procurement Execution | RECON CORE</title>
+<meta name="description" content="Procurement execution like never before: every RFQ, PO, inspection and shipment on one transparent board." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="RECON CORE" />
+<meta property="og:title" content="Procurement Execution | RECON CORE" />
+<meta property="og:description" content="Procurement execution like never before: every RFQ, PO, inspection and shipment on one transparent board." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Procurement Execution | RECON CORE" />
+<meta name="twitter:description" content="Procurement execution like never before: every RFQ, PO, inspection and shipment on one transparent board." />
+<meta name="theme-color" content="#0a0f16" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/shell.css" />
+<link rel="stylesheet" href="css/motion.css" />
+<link rel="stylesheet" href="css/polish.css" />
+<link rel="stylesheet" href="css/clay.css" />
+</head>
+<body data-page="execution">
+
+<header class="chapter">
+  <div class="chapter__in">
+    <span class="chapter__num">04</span>
+    <p class="chapter__k">Procurement execution</p>
+    <h1 class="chapter__t">Procurement execution<br /><em>like never before.</em></h1>
+    <p class="chapter__s">The decision doesn't end at a recommendation. Sourcing, compliance, order management and delivery run on one board, so the thing that was decided is the thing that lands on your dock.</p>
+  </div>
+</header>
+
+<section class="section" id="dashboard">
+  <div class="wrap">
+    <div class="dash reveal" id="dash">
+      <div class="dash__bar">
+        <span class="dash__logo">RECON CORE</span>
+        <span class="dash__tabs"><b class="is-on">Dashboard</b><b>Sourcing</b><b>Compliance</b><b>Orders</b><b>Delivery</b></span>
+        <span class="dash__dots"><i></i><i></i><i></i></span>
+      </div>
+      <div class="dash__body">
+        <div class="dash__col">
+          <div class="dash__k">SOURCING</div>
+          <div class="drow"><span>SMD-0402-X7R</span><em class="chip chip--ok">3 sources</em></div>
+          <div class="drow"><span>STM32G4 MCU</span><em class="chip chip--ok">5 sources</em></div>
+          <div class="drow"><span>IGBT module</span><em class="chip chip--warn">screening</em></div>
+          <div class="drow"><span>Harness assy</span><em class="chip chip--ok">2 sources</em></div>
+          <div class="drow"><span>Al-6061 housing</span><em class="chip chip--ok">4 sources</em></div>
+        </div>
+        <div class="dash__col dash__col--wide">
+          <div class="dash__k">ORDER PIPELINE</div>
+          <div class="pipe" id="pipe">
+            <div class="pipe__step"><i></i><span>RFQ</span></div>
+            <div class="pipe__step"><i></i><span>Quote</span></div>
+            <div class="pipe__step"><i></i><span>PO</span></div>
+            <div class="pipe__step"><i></i><span>Compliance</span></div>
+            <div class="pipe__step"><i></i><span>QC</span></div>
+            <div class="pipe__step"><i></i><span>Ship</span></div>
+            <div class="pipe__step"><i></i><span>Landed</span></div>
+          </div>
+          <table class="dtable">
+            <tbody>
+            <tr><th>ORDER</th><th>SUPPLIER</th><th>QTY</th><th>STATUS</th></tr>
+            <tr><td>RC-4471</td><td>Supplier A</td><td>12,000</td><td><em class="chip chip--ok">In transit</em></td></tr>
+            <tr><td>RC-4468</td><td>Supplier D</td><td>3,400</td><td><em class="chip chip--ok">QC passed</em></td></tr>
+            <tr><td>RC-4462</td><td>Supplier B</td><td>800</td><td><em class="chip chip--warn">Awaiting PO</em></td></tr>
+            <tr><td>RC-4459</td><td>Supplier F</td><td>25,000</td><td><em class="chip chip--ok">Landed</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="dash__col">
+          <div class="dash__k">DELIVERY</div>
+          <div class="gauge">
+            <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="50" class="gauge__bg"/><circle cx="60" cy="60" r="50" class="gauge__fg" id="gaugeFg"/></svg>
+            <span class="gauge__num"><b data-count="98">0</b>%</span>
+            <small>on-time landed</small>
+          </div>
+          <div class="drow"><span>Avg. lead time</span><em>19d</em></div>
+          <div class="drow"><span>Cost variance</span><em class="ok">-7.4%</em></div>
+          <div class="drow"><span>Docs cleared</span><em class="ok">100%</em></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="transp reveal">
+      <article class="tcard">
+        <span class="tcard__n">01</span>
+        <h3>Every price, sourced and shown</h3>
+        <p>You see the quoted line, the duty, the freight and our fee as separate numbers. No blended rate hiding a margin.</p>
+      </article>
+      <article class="tcard">
+        <span class="tcard__n">02</span>
+        <h3>Every document, before it moves</h3>
+        <p>Certifications, licences and export paperwork are cleared and attached to the order, not chased after the container sails.</p>
+      </article>
+      <article class="tcard">
+        <span class="tcard__n">03</span>
+        <h3>Every decision, with its reason</h3>
+        <p>The scorecard that chose the supplier stays attached to the order. Six months later you can still see why.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--night demo">
+  <div class="wrap demo__in reveal">
+    <p class="eyebrow"><span class="eyebrow__num">A</span> See it live</p>
+    <h2 class="demo__t">Contact us for a demo.</h2>
+    <p class="demo__s">We'll walk your own BOM through the board (sourcing, compliance and delivery) and show you the decision trail behind every line. Suppliers and customers hear back within 24 hours.</p>
+    <div class="demo__go">
+      <a class="btn btn--solid" href="contact.html">Request a demo</a>
+      <a class="btn btn--ghost btn--ghost-dark" href="supply-network.html">See the network <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<script src="js/hero-network.js"></script>
+<script src="js/decision-tree.js"></script>
+<script src="js/supply-map.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/pages.js"></script>
+<script src="js/motion.js"></script>
+</body>
+</html>

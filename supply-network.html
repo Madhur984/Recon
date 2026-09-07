@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Supply Network | RECON CORE</title>
+<meta name="description" content="A qualified supply network you can take apart: supplier levels, sourcing hubs and the live routes between them." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="RECON CORE" />
+<meta property="og:title" content="Supply Network | RECON CORE" />
+<meta property="og:description" content="A qualified supply network you can take apart: supplier levels, sourcing hubs and the live routes between them." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Supply Network | RECON CORE" />
+<meta name="twitter:description" content="A qualified supply network you can take apart: supplier levels, sourcing hubs and the live routes between them." />
+<meta name="theme-color" content="#0a0f16" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/shell.css" />
+<link rel="stylesheet" href="css/motion.css" />
+<link rel="stylesheet" href="css/polish.css" />
+<link rel="stylesheet" href="css/clay.css" />
+</head>
+<body data-page="network">
+
+<header class="chapter chapter--night">
+  <div class="chapter__in">
+    <span class="chapter__num">03</span>
+    <p class="chapter__k">Supply network</p>
+    <h1 class="chapter__t">A live network,<br /><em>not a contact list.</em></h1>
+    <p class="chapter__s">Qualified sources across Asia, Europe and North America, with the tier, the route, the transit time and the risk attached to each one. Toggle the layers apart and click any hub.</p>
+  </div>
+</header>
+
+<section class="section section--night" id="map">
+  <div class="wrap">
+    <div class="layerbar reveal">
+      <span class="layerbar__k">LAYERS</span>
+      <button class="layer is-on" data-layer="levels" type="button"><i></i>Levels</button>
+      <button class="layer is-on" data-layer="sourcing" type="button"><i></i>Sourcing</button>
+      <button class="layer is-on" data-layer="routes" type="button"><i></i>Routes</button>
+      <span class="layerbar__hint">Click a hub for its record</span>
+    </div>
+
+    <div class="mapwrap reveal">
+      <svg id="mapSvg" class="map" viewBox="0 0 1000 500" role="img" aria-label="World supply network with tiers, hubs and active shipping routes"></svg>
+      <div class="hubpanel" id="hubPanel" aria-live="polite"></div>
+      <div class="map__legend">
+        <span><i class="lg lg--t1"></i>Tier 1: direct manufacture</span>
+        <span><i class="lg lg--t2"></i>Tier 2: qualified partner</span>
+        <span><i class="lg lg--route"></i>Active route</span>
+        <span><i class="lg lg--ship"></i>In transit</span>
+      </div>
+      <div class="map__ticker" id="mapTicker" aria-live="polite"></div>
+    </div>
+
+    <table class="lanes reveal" id="laneTable">
+      <thead>
+        <tr><th>LANE</th><th>ORIGIN</th><th>DESTINATION</th><th>MODE</th><th>TRANSIT</th><th>STATUS</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="levels">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow"><span class="eyebrow__num">A</span> Levels</p>
+      <h2 class="sec-title">We qualify the network by level, not by listing.</h2>
+      <p class="sec-sub">A source only enters the pool once it has cleared the level above it. That is the difference between a network and a directory.</p>
+    </header>
+    <div class="levels reveal">
+      <article class="level">
+        <span class="level__n">TIER 1</span>
+        <h3>Direct manufacture</h3>
+        <p>Franchised lines and the plants that actually cut, mould or fab the part. Audited on site, traceable to lot, contracted directly.</p>
+        <div class="level__bar"><i style="--w:100%"></i></div>
+        <span class="level__meta">Full traceability &middot; PPAP available</span>
+      </article>
+      <article class="level">
+        <span class="level__n">TIER 2</span>
+        <h3>Qualified partner</h3>
+        <p>Authorised distribution and long-standing partners holding certified stock, used where allocation or MOQ makes direct impractical.</p>
+        <div class="level__bar"><i style="--w:72%"></i></div>
+        <span class="level__meta">Certificate of conformance &middot; lot-tracked</span>
+      </article>
+      <article class="level">
+        <span class="level__n">TIER 3</span>
+        <h3>Screened open market</h3>
+        <p>Used only for obsolete and allocation-constrained lines, and only with incoming inspection and counterfeit screening attached.</p>
+        <div class="level__bar"><i style="--w:44%"></i></div>
+        <span class="level__meta">Inspection report mandatory</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script src="js/hero-network.js"></script>
+<script src="js/decision-tree.js"></script>
+<script src="js/supply-map.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/pages.js"></script>
+<script src="js/motion.js"></script>
+</body>
+</html>

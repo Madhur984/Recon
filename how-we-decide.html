@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How We Decide | RECON CORE</title>
+<meta name="description" content="Decision science applied to procurement: specification, quality, cost and lead time, weighted into one auditable decision by RECON ATLAS." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="RECON CORE" />
+<meta property="og:title" content="How We Decide | RECON CORE" />
+<meta property="og:description" content="Decision science applied to procurement: specification, quality, cost and lead time, weighted into one auditable decision by RECON ATLAS." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How We Decide | RECON CORE" />
+<meta name="twitter:description" content="Decision science applied to procurement: specification, quality, cost and lead time, weighted into one auditable decision by RECON ATLAS." />
+<meta name="theme-color" content="#0a0f16" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/shell.css" />
+<link rel="stylesheet" href="css/motion.css" />
+<link rel="stylesheet" href="css/polish.css" />
+<link rel="stylesheet" href="css/clay.css" />
+</head>
+<body data-page="decide">
+
+<header class="chapter">
+  <div class="chapter__in">
+    <span class="chapter__num">02</span>
+    <p class="chapter__k">How we decide</p>
+    <h1 class="chapter__t">We don't hope. We don't guess.<br /><em>We execute.</em></h1>
+    <p class="chapter__s">Procurement is a decision problem, so we treat it like one. Four factors, weighted against what the requirement actually demands, applied by RECON ATLAS until one source survives the scrutiny.</p>
+  </div>
+</header>
+
+<!-- ============== DECISION SCIENCE ============== -->
+<section class="section" id="science">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow"><span class="eyebrow__num">A</span> Decision science</p>
+      <h2 class="sec-title">Four factors. One weighted judgement.</h2>
+      <p class="sec-sub">Pick the requirement profile, or toggle factors yourself. Every requirement weights these differently, which is exactly why every requirement creates a different decision.</p>
+    </header>
+
+    <div class="presets reveal" id="presets">
+      <button class="preset is-on" data-preset="standard" type="button">STANDARD</button>
+      <button class="preset" data-preset="ev" type="button">EV / POWER</button>
+      <button class="preset" data-preset="rail" type="button">RAILWAYS</button>
+      <button class="preset" data-preset="defence" type="button">SPACE &amp; DEFENCE</button>
+      <button class="preset" data-preset="consumer" type="button">CONSUMER NPI</button>
+    </div>
+
+    <div class="think reveal">
+      <div class="think__factors" id="factors">
+        <button class="factor is-on" data-factor="spec" data-weight="34" type="button">
+          <span class="factor__k">SPECIFICATION</span>
+          <span class="factor__v">Exact part, tolerance, compliance envelope</span>
+          <span class="factor__check" aria-hidden="true"></span>
+        </button>
+        <button class="factor is-on" data-factor="quality" data-weight="26" type="button">
+          <span class="factor__k">QUALITY</span>
+          <span class="factor__v">Audit history, defect rate, certification</span>
+          <span class="factor__check" aria-hidden="true"></span>
+        </button>
+        <button class="factor is-on" data-factor="cost" data-weight="22" type="button">
+          <span class="factor__k">COST</span>
+          <span class="factor__v">Landed cost, duty, MOQ break</span>
+          <span class="factor__check" aria-hidden="true"></span>
+        </button>
+        <button class="factor is-on" data-factor="lead" data-weight="18" type="button">
+          <span class="factor__k">LEAD TIME</span>
+          <span class="factor__v">Stock position, route, buffer risk</span>
+          <span class="factor__check" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="think__panel">
+        <div class="panel-head">
+          <span>DECISION SCIENCE</span>
+          <span class="panel-head__right" id="factorCount">4 factors active</span>
+        </div>
+        <svg class="think__chart" id="thinkChart" viewBox="0 0 480 220" aria-hidden="true"></svg>
+        <div class="think__legend" id="thinkLegend"></div>
+        <div class="think__out">
+          <div><span>Sources remaining</span><b id="thinkRemaining">3</b></div>
+          <div><span>Confidence</span><b id="thinkConf">96%</b></div>
+          <div><span>Decision</span><b class="ok" id="thinkVerdict">RESOLVED</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== EVERY REQUIREMENT ============== -->
+<section class="section section--paper" id="tree">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <p class="eyebrow"><span class="eyebrow__num">B</span> The decision tree</p>
+      <h2 class="sec-title">Every requirement creates a different decision.</h2>
+    </header>
+
+    <div class="io reveal">
+      <div class="io__box">
+        <span class="io__k">INPUT</span>
+        <b>BOM &middot; RFQ &middot; CAD</b>
+        <p>Part numbers, volumes, compliance, target window.</p>
+      </div>
+      <div class="io__mid">
+        <canvas id="coreNet" class="io__canvas" aria-hidden="true"></canvas>
+        <span class="io__label">RECON ATLAS</span>
+      </div>
+      <div class="io__box io__box--out">
+        <span class="io__k">OUTPUT</span>
+        <b>Supplier &middot; Compliance &middot; Logistics</b>
+        <p>Ranked, scored and explainable, line by line.</p>
+      </div>
+    </div>
+
+    <div class="treewrap reveal" id="treewrap">
+      <svg id="treeSvg" class="tree" viewBox="0 0 1000 600" role="img" aria-label="Decision tree narrowing 127 sources to one recommendation"></svg>
+      <aside class="scorecard" id="scorecard">
+        <div class="panel-head"><span>SCORECARD</span><span class="panel-head__right">SUPPLIER A</span></div>
+        <ul class="scorecard__list">
+          <li data-score="98"><span>Technical fit</span><i></i><b>98</b></li>
+          <li data-score="94"><span>Quality history</span><i></i><b>94</b></li>
+          <li data-score="91"><span>Landed cost</span><i></i><b>91</b></li>
+          <li data-score="95"><span>Lead-time risk</span><i></i><b>95</b></li>
+          <li data-score="93"><span>Traceability</span><i></i><b>93</b></li>
+        </ul>
+        <div class="scorecard__why">
+          <span>WHY THIS SUPPLIER?</span>
+          <p>Holds certified stock against the exact spec, clears the compliance gate without deviation, and routes inside the target window at the lowest landed cost of the surviving three.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============== STATEMENT ============== -->
+<section class="section section--night statement">
+  <div class="wrap statement__in reveal">
+    <p class="eyebrow"><span class="eyebrow__num">C</span> The standard we hold</p>
+    <h2 class="statement__t">
+      <span>We don't <em>hope</em>.</span>
+      <span>We don't <em>guess</em>.</span>
+      <span class="statement__x">We <em>execute</em>.</span>
+    </h2>
+    <div class="statement__grid">
+      <div><b>Hope</b><span>is a supplier who said yes on a call and went quiet at week six.</span></div>
+      <div><b>Guessing</b><span>is picking the cheapest line on a spreadsheet and finding out at inspection.</span></div>
+      <div><b>Executing</b><span>is a scored decision, a cleared compliance file and a tracked shipment.</span></div>
+    </div>
+  </div>
+</section>
+
+<script src="js/hero-network.js"></script>
+<script src="js/decision-tree.js"></script>
+<script src="js/supply-map.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/pages.js"></script>
+<script src="js/motion.js"></script>
+</body>
+</html>
